@@ -1,0 +1,13 @@
+<li class="p-3 border-t hover:bg-blue-300">
+  <a [routerLink]="['/user', user.id.toString()]" class="flex">
+    <img
+      [src]="user.avatar"
+      [alt]="user.first_name"
+      class="object-cover aspect-square w-20 rounded-full mr-4"
+    />
+    <div class="flex-grow flex-shrink-0 basis-0">
+      <div class="font-bold">{{ user.first_name }}</div>
+      <div>{{ user.email }}</div>
+    </div>
+  </a>
+</li>

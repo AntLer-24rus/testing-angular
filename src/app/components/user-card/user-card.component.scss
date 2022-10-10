@@ -1,0 +1,5 @@
+.user-card {
+  &__head {
+    @apply backdrop-blur-sm w-64 aspect-[17/9];
+  }
+}

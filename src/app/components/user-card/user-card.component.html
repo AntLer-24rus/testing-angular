@@ -1,0 +1,21 @@
+<div class="relative max-w-3xl border rounded-lg overflow-hidden shadow-sm">
+  <div class="absolute backdrop-blur bg-white/30 w-full aspect-[17/9]"></div>
+  <img
+    [src]="user.avatar"
+    [alt]="getFullName()"
+    class="absolute left-1/4 top-1/4 w-3/6 aspect-square object-cover rounded-full shadow-2xl"
+  />
+  <img
+    [src]="user.avatar"
+    [alt]="getFullName()"
+    class="w-full object-cover aspect-[17/9]"
+  />
+  <div
+    class="w-full aspect-[17/6] relative flex flex-col justify-end items-center pb-4"
+  >
+    <h1 class="font-bold text-3xl">{{ getFullName() }}</h1>
+    <div class=" ">
+      {{ user.email }}
+    </div>
+  </div>
+</div>
