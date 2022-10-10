@@ -20,12 +20,6 @@
   },
   "plugins": ["@typescript-eslint", "prettier", "import"],
   "rules": {
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["@angular"]
-      }
-    ],
     "import/extensions": [
       "error",
       "never",
@@ -70,7 +64,7 @@
       },
       {
         "selector": "property",
-        "format": ["camelCase"],
+        "format": ["camelCase", "snake_case"],
         "leadingUnderscore": "allowSingleOrDouble"
       },
       {
@@ -93,7 +87,9 @@
       { "argsIgnorePattern": "^_" }
     ],
     "no-restricted-imports": "off",
-    "class-methods-use-this": "off"
+    "class-methods-use-this": "off",
+    "no-useless-constructor": "off",
+    "@typescript-eslint/no-useless-constructor": "warn"
   },
   "settings": {
     "import/resolver": {
