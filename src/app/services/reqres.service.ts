@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { TUser } from 'src/app/types/user';
+import { TResource } from 'src/app/types/resource';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
@@ -40,5 +41,13 @@ export class ReqresService {
         this.users.value.splice(idx, 1);
       });
     }
+  }
+
+  getResources() {
+    return this._client
+      .get<TReqresResponse<TResource[]>>(
+        'https://reqres.in/api/unknown?per_page=12'
+      )
+      .pipe(map(({ data }) => data ?? []));
   }
 }

@@ -32,12 +32,12 @@ export class UserPageComponent implements OnInit {
     this._route.paramMap
       .pipe(
         switchMap((params: ParamMap) =>
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           this._reqresService.getUser(params.get('id')!)
         )
       )
       .subscribe((user) => {
         this.user = user;
-        // this._router.navigate()
         this.setTitle();
       });
   }

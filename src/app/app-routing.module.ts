@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ResourcesPageComponent } from 'src/app/pages/resources-page/resources-page.component';
 import { UserPageComponent } from 'src/app/pages/user-page/user-page.component';
 import { UsersPageComponent } from 'src/app/pages/users-page/users-page.component';
 
@@ -10,6 +11,7 @@ const routes: Routes = [
     title: 'Users',
   },
   { path: 'user/:id', component: UserPageComponent },
+  { path: 'resources', component: ResourcesPageComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },
 ];
 

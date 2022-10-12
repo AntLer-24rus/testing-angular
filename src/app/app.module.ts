@@ -10,6 +10,8 @@ import { UsersListComponent } from './components/users-list/users-list.component
 import { UserListItemComponent } from './components/user-list-item/user-list-item.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { ResourcesPageComponent } from './pages/resources-page/resources-page.component';
+import { ResourceComponent } from './components/resource/resource.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     UserListItemComponent,
     UserPageComponent,
     NavigationComponent,
+    ResourcesPageComponent,
+    ResourceComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

@@ -1,0 +1,10 @@
+<h1 class="text-3xl font-bold my-5 text-center">
+  Resource list from
+  <a class="text-blue-800" href="https://reqres.in/" target="_blank">ReqRes</a>
+</h1>
+<div class="flex gap-4 w-full flex-wrap justify-center">
+  <app-resource
+    *ngFor="let resource of resources$ | async"
+    [resource]="resource"
+  ></app-resource>
+</div>
