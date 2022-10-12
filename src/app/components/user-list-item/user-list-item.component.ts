@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TUser } from 'src/app/types/user';
 
 @Component({
@@ -8,4 +8,17 @@ import { TUser } from 'src/app/types/user';
 })
 export class UserListItemComponent {
   @Input() user!: TUser;
+
+  @Output() onDelete = new EventEmitter<number>();
+
+  public deleting = false;
+
+  public getFullName = () => {
+    return `${this.user.first_name} ${this.user.last_name}`;
+  };
+
+  deleteItem() {
+    this.deleting = true;
+    this.onDelete.emit(this.user.id);
+  }
 }

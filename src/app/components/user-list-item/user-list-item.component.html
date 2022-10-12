@@ -1,13 +1,19 @@
-<li class="p-3 border-t hover:bg-blue-300">
-  <a [routerLink]="['/user', user.id.toString()]" class="flex">
+<li class="p-3 border-t hover:bg-blue-100 flex items-center">
+  <a [routerLink]="['/user', user.id.toString()]">
     <img
       [src]="user.avatar"
       [alt]="user.first_name"
       class="object-cover aspect-square w-20 rounded-full mr-4"
     />
-    <div class="flex-grow flex-shrink-0 basis-0">
-      <div class="font-bold">{{ user.first_name }}</div>
-      <div>{{ user.email }}</div>
-    </div>
   </a>
+  <div class="flex-grow flex-shrink-0 basis-0">
+    <a [routerLink]="['/user', user.id.toString()]" class="font-bold">
+      {{ getFullName() }}
+    </a>
+    <div>{{ user.email }}</div>
+  </div>
+  <button (click)="deleteItem()" [disabled]="deleting">
+    <i *ngIf="!deleting" class="material-icons text-red-500">delete</i>
+    <i *ngIf="deleting" class="material-icons animate-spin">autorenew</i>
+  </button>
 </li>
