@@ -7,7 +7,7 @@ const routes: Routes = [
   {
     path: 'users',
     component: UsersPageComponent,
-    title: 'Пользователи',
+    title: 'Users',
   },
   { path: 'user/:id', component: UserPageComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full' },

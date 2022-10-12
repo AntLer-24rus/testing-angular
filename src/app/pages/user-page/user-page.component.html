@@ -1,2 +1,4 @@
-<app-user-card *ngIf="user" [user]="user"></app-user-card>
-<div *ngIf="!user">not found user</div>
+<div class="w-full flex justify-center p-10">
+  <app-user-card *ngIf="user" [user]="user" class="grow"></app-user-card>
+  <div *ngIf="!user">not found user</div>
+</div>

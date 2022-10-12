@@ -9,6 +9,7 @@ import { UserCardComponent } from './components/user-card/user-card.component';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UserListItemComponent } from './components/user-list-item/user-list-item.component';
 import { UserPageComponent } from './pages/user-page/user-page.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { UserPageComponent } from './pages/user-page/user-page.component';
     UsersListComponent,
     UserListItemComponent,
     UserPageComponent,
+    NavigationComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
