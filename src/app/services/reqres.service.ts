@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { TUser } from 'src/app/types/user';
+import { TUser, TEditUser } from 'src/app/types/user';
 import { TResource } from 'src/app/types/resource';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
 type TReqresResponse<T> = {
   data?: T;
+};
+
+type TUpdateResponse<T> = T & {
+  updateAt: string;
 };
 
 @Injectable({
@@ -35,12 +39,30 @@ export class ReqresService {
   }
 
   deleteUser(id: number) {
-    const idx = this.users.value.findIndex(({ id: userId }) => userId === id);
-    if (idx >= 0) {
-      this._client.delete(`https://reqres.in/api/users/${id}`).subscribe(() => {
+    this._client.delete(`https://reqres.in/api/users/${id}`).subscribe(() => {
+      const idx = this.users.value.findIndex(({ id: userId }) => userId === id);
+      if (idx >= 0) {
         this.users.value.splice(idx, 1);
-      });
-    }
+      }
+    });
+  }
+
+  updateUser(id: number, newUserData: TEditUser) {
+    const request = this._client.put<TUpdateResponse<TEditUser>>(
+      `https://reqres.in/api/users/${id}`,
+      newUserData
+    );
+
+    request.subscribe(() => {
+      const idx = this.users.value.findIndex(({ id: userId }) => userId === id);
+      if (idx >= 0) {
+        this.users.value[idx] = {
+          ...this.users.value[idx],
+          ...newUserData,
+        };
+      }
+    });
+    return request;
   }
 
   getResources() {

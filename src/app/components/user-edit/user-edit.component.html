@@ -1,0 +1,55 @@
+<form class="user-edit" [formGroup]="form" (ngSubmit)="submit()">
+  <label class="user-edit__label">
+    <span class="label__text">First name:</span>
+    <input
+      class="user-edit__input"
+      [ngClass]="{
+        'user-edit__input_error': firstNameHasError
+      }"
+      type="text"
+      formControlName="first_name"
+    />
+    <p *ngIf="firstNameHasRequiredError" class="label__error">
+      Must be filled in...
+    </p>
+    <p *ngIf="firstNameHasCapitalizeError" class="label__error">
+      Must be capitalized...
+    </p>
+  </label>
+  <label class="user-edit__label">
+    <span class="text">Last name:</span>
+    <input
+      class="user-edit__input"
+      [ngClass]="{
+        'user-edit__input_error': lastNameHasError
+      }"
+      type="text"
+      formControlName="last_name"
+    />
+    <p *ngIf="lastNameHasRequiredError" class="label__error">
+      Must be filled in...
+    </p>
+    <p *ngIf="lastNameHasCapitalizeError" class="label__error">
+      Must be capitalized...
+    </p>
+  </label>
+  <label class="user-edit__label">
+    <span class="text">E-Mail:</span>
+    <input
+      class="user-edit__input"
+      [ngClass]="{
+        'user-edit__input_error': emailHasError
+      }"
+      type="text"
+      formControlName="email"
+    />
+    <p *ngIf="emailHasRequiredError" class="label__error">
+      Must be filled in...
+    </p>
+    <p *ngIf="emailHasEmailError" class="label__error">Must be correct email</p>
+  </label>
+  <button type="submit" class="btn btn-blue max-h-[40px]" [disabled]="updating">
+    <ng-container *ngIf="!updating">Save</ng-container>
+    <i *ngIf="updating" class="material-icons animate-spin">autorenew</i>
+  </button>
+</form>

@@ -20,4 +20,20 @@
       {{ user.email }}
     </div>
   </div>
+  <button
+    class="absolute bottom-4 right-4 icon-btn"
+    (click)="showEditDialog = true"
+  >
+    <i class="material-icons text-gray-600">edit</i>
+  </button>
 </div>
+<app-modal
+  *ngIf="showEditDialog"
+  (close)="showEditDialog = false"
+  title="User edit"
+>
+  <app-user-edit
+    [user]="user"
+    (userUpdate)="updateUser($event)"
+  ></app-user-edit>
+</app-modal>

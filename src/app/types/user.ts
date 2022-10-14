@@ -5,3 +5,5 @@ export type TUser = {
   last_name: string;
   avatar: string;
 };
+
+export type TEditUser = Omit<TUser, 'id' | 'avatar'>;
