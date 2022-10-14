@@ -1,14 +1,14 @@
 <div
   class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-5 max-w-md rounded-md border shadow-sm"
 >
-  <h1 class="font-bold text-2xl text-center">Login</h1>
-  <form class="login" [formGroup]="form" (ngSubmit)="login()">
-    <label class="login__label">
+  <h1 class="font-bold text-2xl text-center">Registration</h1>
+  <form class="registration" [formGroup]="form" (ngSubmit)="registration()">
+    <label class="registration__label">
       <span class="label__text">E-Mail:</span>
       <input
-        class="login__input"
+        class="registration__input"
         [ngClass]="{
-          login__input_error: emailHasError
+          registration__input_error: emailHasError
         }"
         type="email"
         autocomplete="email"
@@ -21,12 +21,12 @@
         Must be correct email...
       </p>
     </label>
-    <label class="login__label">
+    <label class="registration__label">
       <span class="label__text">Password:</span>
       <input
-        class="login__input"
+        class="registration__input"
         [ngClass]="{
-          login__input_error: passwordHasErrors
+          registration__input_error: false
         }"
         type="password"
         autocomplete="current-password"
@@ -39,22 +39,16 @@
         The length must be 6 characters
       </p>
     </label>
-    <label class="login__label">
-      <button
-        type="submit"
-        class="btn btn-blue max-h-[40px] w-full"
-        [disabled]="form.invalid || form.disabled"
-      >
-        Login
+    <label class="registration__label">
+      <button type="submit" class="btn btn-blue max-h-[40px] w-full">
+        Registration
       </button>
-      <p *ngIf="loginError" class="label__error text-center w-full">
-        {{ loginError }}
+      <p *ngIf="registrationError" class="label__error text-center w-full">
+        {{ registrationError }}
       </p>
     </label>
   </form>
   <div class="text-center w-full">
-    <a routerLink="/registration" class="underline cursor-pointer">
-      or register
-    </a>
+    <a routerLink="/login" class="underline cursor-pointer">or login</a>
   </div>
 </div>

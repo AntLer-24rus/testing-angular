@@ -64,7 +64,11 @@ export class AuthService {
       })
       .pipe(
         tap(({ token }) => this.setToken(token)),
-        map(({ id }) => ({ id }))
+        map(({ id }) => ({ id })),
+        catchError((response: HttpErrorResponse) => {
+          const { error } = response.error as { error: string };
+          return throwError(() => error);
+        })
       );
   }
 }
