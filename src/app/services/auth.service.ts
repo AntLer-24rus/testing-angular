@@ -28,6 +28,10 @@ export class AuthService {
     localStorage.setItem(LOCAL_STORAGE_AUTH_TOKEN_NAME, token);
   }
 
+  getToken() {
+    return this._token ?? '';
+  }
+
   login(email: string, password: string) {
     return this._http
       .post<{ token: string }>('https://reqres.in/api/login', {
