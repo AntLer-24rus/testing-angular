@@ -1,9 +1,43 @@
 <nav class="fixed top-0 left-0 right-0 bg-slate-400 h-[50px] z-10">
-  <div class="container mx-auto flex justify-between items-center h-full">
+  <div class="container mx-auto flex gap-4 items-center h-full">
     <a routerLink="/" class="text-lg font-bold">Testing Angular</a>
-    <div>
-      <a routerLink="/users" class="mr-2">Users</a>
-      <a routerLink="/resources">Resource</a>
-    </div>
+    <ng-container *ngIf="isAuth">
+      <a
+        routerLink="/users"
+        class="px-2 flex items-center h-full hover:bg-slate-500"
+        routerLinkActive="bg-slate-500"
+      >
+        Users
+      </a>
+      <a
+        routerLink="/resources"
+        class="px-2 flex items-center h-full hover:bg-slate-500"
+        routerLinkActive="bg-slate-500"
+      >
+        Resource
+      </a>
+    </ng-container>
+    <div class="grow"></div>
+    <ng-container *ngIf="!isAuth">
+      <a
+        routerLink="/login"
+        class="px-2 flex items-center h-full hover:bg-slate-500"
+      >
+        Sign in
+      </a>
+      <a
+        routerLink="/registration"
+        class="px-2 flex items-center h-full hover:bg-slate-500"
+      >
+        Sign up
+      </a>
+    </ng-container>
+    <button
+      *ngIf="isAuth"
+      class="px-2 flex items-center h-full hover:bg-slate-500"
+      (click)="$event.preventDefault(); $event.stopPropagation(); logout()"
+    >
+      Log out
+    </button>
   </div>
 </nav>

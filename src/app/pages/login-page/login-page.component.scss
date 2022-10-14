@@ -1,0 +1,25 @@
+.login {
+  @apply grid grid-cols-1 gap-6;
+
+  &__label {
+    @apply block;
+
+    .label {
+      &__text {
+        @apply text-gray-700;
+      }
+      &__error {
+        @apply text-red-500;
+      }
+    }
+  }
+
+  &__input {
+    @apply form-input block border-gray-300 shadow-sm rounded-md mt-1 w-full
+    focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50;
+
+    &_error {
+      @apply border-red-500 focus:border-red-500 text-red-500;
+    }
+  }
+}

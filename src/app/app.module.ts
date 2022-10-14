@@ -15,6 +15,8 @@ import { ResourcesPageComponent } from './pages/resources-page/resources-page.co
 import { ResourceComponent } from './components/resource/resource.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { RegistrationPageComponent } from './pages/registration-page/registration-page.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { ModalComponent } from './components/modal/modal.component';
     ResourceComponent,
     UserEditComponent,
     ModalComponent,
+    LoginPageComponent,
+    RegistrationPageComponent,
   ],
   imports: [
     BrowserModule,
